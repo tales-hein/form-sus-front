@@ -1,0 +1,231 @@
+body { 
+    margin: 0;
+    color: white;
+    word-wrap: break-word;
+    font-family: 'Noto Sans';
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+span {
+    color: #35373B;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.descricao-input {
+    padding: 5px; 
+    color: #35373B; 
+    font-size: 20px; 
+    font-weight: 400;
+}
+
+.input-wrapper {
+    align-items: center;
+}
+
+.header {
+    overflow: hidden;
+    width: 100%;
+    font-size: 28px;
+    font-weight: 600;
+    background-color: #004F96;
+    padding: 8px 30px;
+}
+
+.content-wrapper {
+    flex: 1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.primeiro-login-content {
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 800px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 2px #ABB9C0;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-ja-cadastrado-content {
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 470px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 2px #ABB9C0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-principal-content {
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 370px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 2px #ABB9C0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    flex-shrink: 0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #004F96;
+}
+
+.input {
+    width: 360px; 
+    height: 50px;
+    border-radius: 8px; 
+    border: 1px #ABB9C0 solid; 
+    justify-content: flex-start; 
+    align-items: center;
+    font-size: 20px;
+    display: inline-flex;
+    padding-left: 20px;
+}
+
+.btn-voltar  {
+    border: solid 2px #004F96;
+    cursor: pointer;
+    color: #004F96;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px; 
+    font-size: 20px; 
+    width: 150px; 
+    height: 50px;
+}
+
+.btn-voltar:hover {
+    color: #1d72bd;
+    border: solid 4px #1d72bd;
+}
+
+.btn-avancar {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #004F96;
+    padding: 5px; 
+    font-size: 20px; 
+    width: 150px; 
+    height: 50px;
+}
+
+.btn-avancar:hover {
+    background-color: #1d72bd;
+}
+
+.btn-acessar {
+    border: none;
+    cursor: pointer;
+    width: 360px; 
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+    background-color: #004F96;
+    display: inline-flex;
+}
+
+.btn-acessar:hover {
+    background-color: #1d72bd;
+}
+
+.btn-primary-menu {
+    border: none;
+    cursor: pointer;
+    width: 360px; 
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+    background-color: #004F96;
+    display: inline-flex;
+    justify-content: space-between;
+    padding-right: 30px;
+    padding-left: 20px;
+}
+
+.btn-primary-menu:hover {
+    background-color: #1d72bd;
+}
+
+.btn-secondary-menu {
+    border: solid 2px #004F96;
+    cursor: pointer;
+    color: #004F96;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px; 
+    font-size: 20px;
+    font-weight: 600;
+    width: 360px; 
+    height: 50px;
+    justify-content: space-between;
+}
+
+.btn-secondary-menu:hover {
+    color: #1d72bd;
+    border: solid 4px #1d72bd;
+}
+
+.btn-primary-menu-small {
+    border: none;
+    cursor: pointer;
+    width: 150px; 
+    height: 50px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    justify-content: center; 
+    align-items: center;
+    color: #fff;
+    background-color: #004F96;
+}
+
+.btn-primary-menu:hover {
+    background-color: #1d72bd;
+}
+
+.btn-secondary-menu-small {
+    border: solid 2px #004F96;
+    cursor: pointer;
+    color: #004F96;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 5px; 
+    font-size: 20px;
+    font-weight: 600;
+    width: 150px; 
+    height: 50px;
+}
+
+.btn-secondary-menu:hover {
+    color: #1d72bd;
+    border: solid 4px #1d72bd;
+}
