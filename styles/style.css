@@ -43,8 +43,6 @@ span {
 }
 
 .primeiro-login-content {
-    justify-content: center;
-    align-items: center;
     width: 450px;
     height: 800px;
     background-color: #fff;
@@ -52,6 +50,32 @@ span {
     border: solid 2px #ABB9C0;
     display: flex;
     flex-direction: column;
+}
+
+.form-info-geral {
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 900px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 2px #ABB9C0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper-sidenav-e-form {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    width: 30%; 
+    padding: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .wrapper-sidenav-e-form {
+      width: 100%;
+    }
 }
 
 .login-ja-cadastrado-content {
@@ -208,7 +232,7 @@ span {
     background-color: #004F96;
 }
 
-.btn-primary-menu:hover {
+.btn-primary-menu-small:hover {
     background-color: #1d72bd;
 }
 
@@ -225,7 +249,75 @@ span {
     height: 50px;
 }
 
-.btn-secondary-menu:hover {
+.btn-secondary-menu-small:hover {
     color: #1d72bd;
     border: solid 4px #1d72bd;
+}
+
+.checkboxes-visita-comp {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-redondo {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ABB9C0;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.checkbox-redondo:hover {
+    background-color: #ccc;
+}
+
+.checkbox-redondo:checked {
+    background-color: #1d72bd;
+}
+
+label {
+    color: #35373B;
+    font-size: 18px;
+}
+
+.btn-side-nav {
+    border: none; 
+    cursor: pointer;
+    background-color:white;
+}
+
+.background-btn-side-nav {
+    width: 60px; 
+    height: 60px; 
+    left: 0.50px; 
+    top: 0px; 
+    position: absolute;
+    background: #004F96; 
+    border-radius: 8px;
+}
+
+.wrapper-icone-btn:hover .background-btn-side-nav {
+    background: #1d72bd;
+}
+
+.wrapper-icone {
+    left: 6px; 
+    top: 6px; 
+    position: absolute; 
+    color: white; 
+    font-size: 28px; 
+    font-weight: 800; 
+    word-wrap: break-word
+}
+
+.wrapper-icone-btn {
+    width: 60px; 
+    height: 60px; 
+    position: relative; 
+    border-radius: 8px
 }
