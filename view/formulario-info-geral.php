@@ -3,7 +3,7 @@
     <?php include 'view/sidenav.php' ?>
     <!-- formulario -->
 <div class="content-wrapper">
-        <div class="form-info-geral">
+        <div style="height: 1000px;" class="form-info-geral">
             <span>Informações gerais da visita</span>
             <div class="input-wrapper">
                 <p class="descricao-input">Turno*</p>
@@ -38,8 +38,8 @@
             <br>
             <br>
             <div class="btns-wrapper" style="justify-content: space-betwenn;">
-                <button id="btn-voltar" class="btn-secondary-menu-small" type="button">Cancelar</button>
-                <button id="btn-avancar" class="btn-primary-menu-small" type="button">Avançar</button>
+                <button id="btn-voltar-infogeral" class="btn-secondary-menu-small" type="button">Cancelar</button>
+                <button id="btn-avancar-infogeral" class="btn-primary-menu-small" type="button">Avançar</button>
             </div>
         </div>
 </div>

@@ -1,4 +1,4 @@
-body { 
+body {
     margin: 0;
     color: white;
     word-wrap: break-word;
@@ -48,8 +48,8 @@ span {
 }
 
 .input-checkbox-quadrado:checked:after {
-	content: '\2714';
-	font-size: 42px;
+	content: '\2717';
+	font-size: 38px;
     color: #004F96;
 	position: relative;
     left: 3px;
@@ -66,6 +66,7 @@ span {
 }
 
 .content-wrapper {
+    position:relative;
     flex: 1;
     min-height: 100vh;
     display: flex;
@@ -84,6 +85,9 @@ span {
 }
 
 .form-info-geral {
+    position:absolute;
+    top:0px;
+    left:0;
     justify-content: center;
     align-items: center;
     width: 450px;
@@ -96,6 +100,9 @@ span {
 }
 
 .form-info-pessoal {
+    position:absolute;
+    top:00px;
+    left:0;
     justify-content: center;
     align-items: center;
     width: 450px;
@@ -111,7 +118,9 @@ span {
     display: grid;
     grid-template-columns: 100px 1fr;
     width: 30%; 
-    padding: 3rem;
+    padding-right: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 10rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -304,23 +313,32 @@ span {
 }
 
 .checkbox-redondo {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
-    border: 1px solid #ABB9C0;
+    border: 1px solid #35373B;
     appearance: none;
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
 }
 .checkbox-redondo:hover {
-    background-color: #ccc;
+    border: solid 3px #1d72bd;
 }
 
 .checkbox-redondo:checked {
-    background-color: #1d72bd;
+    border: solid 3px #1d72bd;
+}
+
+.checkbox-redondo:checked:after {
+    content: '\2717';
+	font-size: 38px;
+    color: #004F96;
+	position: relative;
+    left: 3px;
+    bottom: 2px;
 }
 
 label {

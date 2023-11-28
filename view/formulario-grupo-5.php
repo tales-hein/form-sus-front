@@ -49,8 +49,8 @@
             <br>
             <br>
             <div class="btns-wrapper" style="justify-content: space-betwenn;">
-                <button id="btn-voltar" class="btn-secondary-menu-small" type="button">Cancelar</button>
-                <button id="btn-avancar" class="btn-primary-menu-small" type="button">Avançar</button>
+                <button id="btn-voltar-5" class="btn-secondary-menu-small" type="button">Voltar</button>
+                <button id="btn-avancar-5" class="btn-primary-menu-small" type="button">Avançar</button>
             </div>
         </div>
 </div>
