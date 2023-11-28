@@ -18,7 +18,7 @@
 
 <!-- Conteudo -->
     <div style="display: flex; justify-content: center; align-items: center; padding-right: 200px;">
-        <?php include 'view/formulario-info-geral.php' ?>
+        <?php include 'view/formulario-grupo-5.php' ?>
     </div>
 <!-- Footer -->
 

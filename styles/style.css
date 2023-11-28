@@ -25,6 +25,37 @@ span {
     align-items: center;
 }
 
+.btns-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.input-checkbox-quadrado {
+    appearance: none;
+    border: 1px solid #35373B;
+    border-radius: 6px;
+    width: 45px; 
+    height:45px;
+}
+
+.input-checkbox-quadrado:hover {
+    border: solid 3px #1d72bd;
+}
+
+.input-checkbox-quadrado:checked {
+    border: solid 3px #1d72bd;
+}
+
+.input-checkbox-quadrado:checked:after {
+	content: '\2714';
+	font-size: 42px;
+    color: #004F96;
+	position: relative;
+    left: 3px;
+    bottom: 2px;
+}
+
 .header {
     overflow: hidden;
     width: 100%;
@@ -57,6 +88,18 @@ span {
     align-items: center;
     width: 450px;
     height: 900px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: solid 2px #ABB9C0;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-info-pessoal {
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 1000px;
     background-color: #fff;
     border-radius: 8px;
     border: solid 2px #ABB9C0;
