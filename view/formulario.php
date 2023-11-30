@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Visitas - Menu principal</title>
+    <title>E-Visitas - Formulário</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../script/menu-principal.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
@@ -19,7 +19,7 @@
 
 <!-- Conteudo -->
     <div style="display: flex; justify-content: center; align-items: center;">
-        <?php include 'view/menu.php' ?>
+        <?php include 'view/formulario-info-pessoal.php' ?>
     </div>
 <!-- Footer -->
 

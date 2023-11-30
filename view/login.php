@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Visitas - Entrar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../script/login.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
@@ -17,9 +18,9 @@
     </header>
 
 <!-- Conteudo -->
-
-    <?php include 'view/login-ja-cadastrado.php' ?>
-
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <?php include 'view/login-inicial.php' ?>
+    </div>
 <!-- Footer -->
 
     <footer class="footer">

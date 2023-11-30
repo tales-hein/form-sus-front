@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Visitas - Menu principal</title>
+    <title>E-Visitas - Histórico</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../script/historico.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
@@ -18,7 +19,7 @@
 
 <!-- Conteudo -->
     <div style="display: flex; justify-content: center; align-items: center;">
-        <?php include 'view/revisao-cadastro.php'  ?>
+        <?php include 'view/visitas-cadastradas.php'  ?>
     </div>
 <!-- Footer -->
 
