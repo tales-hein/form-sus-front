@@ -1,2 +1,2 @@
 <?php
-include 'view/menu-principal.php';
+include 'view/historico.php';

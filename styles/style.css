@@ -40,6 +40,7 @@ span {
 }
 
 .input-checkbox-quadrado:hover {
+    cursor: pointer;
     border: solid 3px #1d72bd;
 }
 
@@ -124,7 +125,6 @@ span {
 }
 
 @media only screen and (max-width: 768px) {
-    /* For mobile phones: */
     .wrapper-sidenav-e-form {
       width: 100%;
     }
@@ -372,7 +372,7 @@ label {
     position: absolute; 
     color: white; 
     font-size: 28px; 
-    font-weight: 800; 
+    font-weight: 600; 
     word-wrap: break-word
 }
 
@@ -381,4 +381,27 @@ label {
     height: 60px; 
     position: relative; 
     border-radius: 8px
+}
+
+.wrapper-icone-numero-sidenav {
+    left: 22.50px; top: 11px; 
+    position: absolute; 
+    color: white; 
+    font-size: 28px; 
+    font-family: Noto Sans; 
+    font-weight: 600; 
+    word-wrap: break-word
+}
+
+.wrapper-sidenav {
+    display: inline-block; 
+    padding-top:30px; 
+    padding: 1rem 1rem; 
+    vertical-align: middle;
+}
+
+.navegador-lateral-wrapper {
+    display: flex; 
+    flex-direction:column; 
+    width: 60px;
 }
