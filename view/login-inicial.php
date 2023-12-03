@@ -9,7 +9,7 @@
                 <br>
                 <br>
                 <div class="btn-login">
-                    <button id="getDataButton" class="btn-acessar" type="button">Avançar</button>
+                    <button id="btn_avancar_inicial" class="btn-acessar" type="button">Avançar</button>
                 </div>
             </div>
     </div>

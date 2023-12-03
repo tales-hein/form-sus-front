@@ -16,10 +16,9 @@
     <header class="header">
         <p>Portal E-Visitas</p>
     </header>
-
+<input type="hidden" id="hdn_cns">
 <!-- Conteudo -->
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <?php include 'view/login-inicial.php' ?>
+    <div id="wrapper_conteudo_login" style="display: flex; justify-content: center; align-items: center;">
     </div>
 <!-- Footer -->
 

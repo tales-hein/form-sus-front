@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+
+<?php
+include('../util/utils.php');
+if (isset($_GET['dados'])) {
+    $receivedData = unserialize(urldecode($_GET['dados']));
+    $cns = $receivedData['cns'];
+    if(!validarKey($cns, $receivedData['key'])){
+        print_r('Erro: Você não tem permissão para entrar.');
+        exit();
+    }
+    echo "<input type='hidden' id='cns_agente_logado' value='$cns'>";
+}else{
+    print_r('Erro: Você não tem permissão para entrar.');
+    exit();
+}
+?>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +36,23 @@
 
 <!-- Conteudo -->
     <div style="display: flex; justify-content: center; align-items: center;">
-        <?php include 'view/menu.php' ?>
+        <div class="content-wrapper">
+            <div class="menu-principal-content">
+                <span></span>
+                <br><br>
+                <button id="btn_cadastrar_nova_visita" class="btn-primary-menu">
+                    <i class="material-symbols-outlined" style="font-size: 32px;">assignment_add</i>
+                    Cadastrar nova visita
+                </button>
+                <br>
+                <button id="btn_historico" class="btn-primary-menu">
+                    <i class="material-symbols-outlined" style="font-size: 32px;">history</i>
+                    Visitas já cadastradas
+                </button>
+                <br>
+                <button id="btn_sair" class="btn-secondary-menu">Sair</button>
+            </div>
+        </div>
     </div>
 <!-- Footer -->
 

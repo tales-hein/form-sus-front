@@ -21,8 +21,8 @@
             <br>
             <br>
             <div class="btns-wrapper">
-                <button id="btn-voltar" class="btn-voltar" type="button">Voltar</button>
-                <button id="btn-avancar" class="btn-avancar" type="button">Avançar</button>
+                <button id="btn_voltar_primeiro_acesso" class="btn-voltar" type="button">Voltar</button>
+                <button id="btn_cadastrar_primeiro_acesso" class="btn-avancar" type="button">Avançar</button>
             </div>
         </div>
 </div>

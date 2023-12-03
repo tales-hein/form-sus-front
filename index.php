@@ -2,6 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+include('./util/utils.php');
+
 $routes = [
     '/'           => 'LoginController',
     '/menu'       => 'MenuController',
@@ -16,13 +18,26 @@ if(!array_key_exists($request_uri, $routes) && !str_contains($request_uri, '/aja
     echo '<h1>404 Página não encontrada</h1>';
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && str_contains($request_uri, '/ajax')) {
-    $uri_parts = explode('/', $request_uri);
-    $controller_name = $uri_parts[2];
-    $method_name = $uri_parts[3];
-    require_once('./controllers/' . $controller_name . '.php');
-    $controller = new $controller_name();
-    $controller->$method_name();
+if (str_contains($request_uri, '/ajax')) {
+    if($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $uri_parts = explode('/', $request_uri);
+        $controller_name = $uri_parts[2];
+        $method_name = $uri_parts[3];
+        require_once('./controllers/' . $controller_name . '.php');
+        $controller = new $controller_name();
+        $controller->$method_name();
+        return;
+    }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $uri_parts = explode('/', $request_uri);
+        $controller_name = $uri_parts[2];
+        $method_name = $uri_parts[3];
+        require_once('./controllers/' . $controller_name . '.php');
+        $controller = new $controller_name($_POST);
+        $controller->$method_name();
+        return;
+    }    
 }
 
 if (array_key_exists($request_uri, $routes)) {

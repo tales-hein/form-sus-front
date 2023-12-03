@@ -92,6 +92,8 @@ span {
 }
 
 .primeiro-login-content {
+    justify-content: center;
+    align-items: center;
     width: 450px;
     height: 800px;
     background-color: #fff;

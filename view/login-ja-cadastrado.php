@@ -12,7 +12,7 @@
             <br>
             <br>
             <div class="btn-login">
-                <button id="btn-acessar" class="btn-acessar" type="button">Acessar</button>
+                <button id="btn_login_cadastrado" class="btn-acessar" type="button">Acessar</button>
             </div>
         </div>
 </div>
