@@ -1,10 +1,4 @@
 $(document).ready(function() {
-    window.addEventListener('popstate', function (event) {
-    // You might perform some action here or prevent default behavior
-        event.preventDefault();
-    // For example, you could push a new state again to counteract the back button press
-        window.history.pushState(null, null, window.location.pathname + '#wrapper_conteudo_login');
-    });
 
     function loadLoginInicial() {
         $('#wrapper_conteudo_login').empty();

@@ -9,7 +9,6 @@ class LoginController {
     }
 
     public function index() {
-        routeTo('menu-principal', ['cns' => 13231, 'key' => gerarAssinatura(13231)]);
         include(__DIR__ . '/../view/login.php');
     }
 

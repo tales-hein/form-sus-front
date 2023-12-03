@@ -22,11 +22,11 @@ function render($arquivo) {
 
 function routeTo($referencia, $dados = false) {
     if(!$dados) {
-        header("Location: view/$referencia.php");
+        header("Location: /view/$referencia.php");
         exit();
     }
     $dadosPreparados = urldecode(serialize($dados));
-    header("Location: view/$referencia.php?dados=$dadosPreparados");
+    header("Location: /view/$referencia.php?dados=$dadosPreparados");
     exit();
 }
 
