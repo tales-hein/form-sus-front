@@ -20,17 +20,20 @@ function render($arquivo) {
     echo $html;
 }
 
-function routeTo($referencia, $dados = false) {
-    if(!$dados) {
+function routeTo($referencia, $cns = false) {
+    if(!$cns) {
         header("Location: /view/$referencia.php");
         exit();
     }
-    $dadosPreparados = urldecode(serialize($dados));
-    header("Location: /view/$referencia.php?dados=$dadosPreparados");
+    header("Location: /view/$referencia.php?cns=$cns");
+    var_dump(headers_list());
     exit();
 }
 
 function gerarAssinatura($cns) {
+    if(strlen($cns) != 15){
+        exit('403: Não permitido');
+    }
     $segredo = '8uRhAeH89naXfFXKGOEj';
     return hash_hmac('sha256', $cns, $segredo);
 }

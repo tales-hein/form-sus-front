@@ -85,7 +85,7 @@ class LoginController {
             ];
         }
         if($resultadoRequest->success == true) {
-            routeTo('menu', ['cns' => $cns]);
+            routeTo('menu-principal', ['cns' => $cns, 'key' => gerarAssinatura($cns)]);
         }
         header('Content-Type: application/json');
         echo json_encode($resposta);

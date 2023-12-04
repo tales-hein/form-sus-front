@@ -8,26 +8,26 @@
             <br>
             <div style="width:100%;padding-left:15%;text-align: left;display: grid;grid-template-columns: auto;" class="input-wrapper">
                 <div style="display: flex;align-items: center;">
-                    <input class="checkbox-redondo" type="checkbox" name="recem_nascido" id="recem_nascido">
-                    <label style="padding-left: 5%;" for="recem_nascido">Visita realizada</label>
+                    <input class="checkbox-redondo" type="checkbox" name="realizada" id="realizada">
+                    <label style="padding-left: 5%;" for="realizada">Visita realizada</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="checkbox-redondo" type="checkbox" name="crianca" id="crianca">
-                    <label style="padding-left: 5%;" for="crianca">Visita recusada</label>
+                    <input class="checkbox-redondo" type="checkbox" name="recusada" id="recusada">
+                    <label style="padding-left: 5%;" for="recusada">Visita recusada</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="checkbox-redondo" type="checkbox" name="crianca" id="crianca">
-                    <label style="padding-left: 5%;" for="crianca">Ausente</label>
+                    <input class="checkbox-redondo" type="checkbox" name="ausente" id="ausente">
+                    <label style="padding-left: 5%;" for="ausente">Ausente</label>
                 </div>
                 <br>
             </div>
             <br>
             <br>
             <div class="btns-wrapper" style="justify-content: space-betwenn;">
-                <button id="btn-voltar-2" class="btn-secondary-menu-small" type="button">Voltar</button>
-                <button id="btn-avancar-2" class="btn-primary-menu-small" type="button">Avançar</button>
+                <button id="btn-voltar-desfecho" class="btn-secondary-menu-small" type="button">Voltar</button>
+                <button id="btn-gravar-formulario" class="btn-primary-menu-small" type="button">Gravar</button>
             </div>
         </div>
 </div>

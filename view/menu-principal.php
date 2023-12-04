@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-include('../util/utils.php');
-if (isset($_GET['dados'])) {
-    $receivedData = unserialize(urldecode($_GET['dados']));
-    $cns = $receivedData['cns'];
-    if(!validarKey($cns, $receivedData['key'])){
-        print_r('Erro: Você não tem permissão para entrar.');
-        exit();
-    }
+if (isset($_GET['cns'])) {
+    $cns = $_GET['cns'];
     echo "<input type='hidden' id='cns_agente_logado' value='$cns'>";
 }else{
     print_r('Erro: Você não tem permissão para entrar.');
@@ -38,7 +32,7 @@ if (isset($_GET['dados'])) {
     <div style="display: flex; justify-content: center; align-items: center;">
         <div class="content-wrapper">
             <div class="menu-principal-content">
-                <span></span>
+                <span id="bem_vindo"></span>
                 <br><br>
                 <button id="btn_cadastrar_nova_visita" class="btn-primary-menu">
                     <i class="material-symbols-outlined" style="font-size: 32px;">assignment_add</i>

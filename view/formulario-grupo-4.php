@@ -8,32 +8,32 @@
             <div style="width:100%;padding-left:15%;text-align: left;display: grid;grid-template-columns: auto;" class="input-wrapper">
                 <p class="descricao-input">Acompanhamento:</p>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="domiciliado_acamado" id="domiciliado_acamado">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="domiciliado_acamado" id="acompanhamento_domiciliadosAcamados">
                     <label style="padding-left: 5%;" for="domiciliado_acamado">Domiciliados/Acamados</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="vulnerabilidade_social" id="vulnerabilidade_social">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="vulnerabilidade_social" id="acompanhamento_condicoesDeVulnerabilidadeSocial">
                     <label style="padding-left: 5%;" for="vulnerabilidade_social">Condições de vulnerabilidade social</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="bolsa_familia" id="bolsa_familia">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="bolsa_familia" id="acompanhamento_condicionalidadesDoBolsaFamilia">
                     <label style="padding-left: 5%;" for="bolsa_familia">Condicionalidades do Bolsa Família</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="mental" id="mental">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="mental" id="acompanhamento_saudeMental">
                     <label style="padding-left: 5%;" for="mental">Saúde mental</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="alcool" id="alcool">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="alcool" id="acompanhamento_usuarioDeAlcool">
                     <label style="padding-left: 5%;" for="alcool">Usuário de álcool</label>
                 </div>
                 <br>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="drogas" id="drogas">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="drogas" id="acompanhamento_usuarioDeOutrasDrogas">
                     <label style="padding-left: 5%;" for="drogas">Usuário de outras drogas</label>
                 </div>
                 <br>
@@ -41,7 +41,7 @@
             <div style="width:100%;padding-left:15%;text-align: left;display: grid;grid-template-columns: auto;" class="input-wrapper">
                 <p class="descricao-input">Controle ambiental/vetorial:</p>
                 <div style="display: flex;align-items: center;">
-                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="educativa" id="educativa">
+                    <input class="input-checkbox-quadrado" type="checkbox" class="input-checkbox-quadrado" name="educativa" id="vetorial_acaoEducativa">
                     <label style="padding-left: 5%;" for="educativa">Ação educativa</label>
                 </div>
                 <br>

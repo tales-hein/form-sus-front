@@ -43,12 +43,12 @@ $(document).ready(function() {
     }
 
     $(document).on('click', '#btn_avancar_inicial', function() {
-        $cns = $('#cns').val();
+        const cns = $('#cns').val();
         $.ajax({
             url: '/ajax/LoginController/processarCnsLogin',
             method: 'POST',
             data: {
-                cns: $cns
+                cns: cns
             },
             success: function(response) {
                 console.log(response);
@@ -72,14 +72,14 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '#btn_login_cadastrado', function() {
-        $cns = $('#cns').val();
-        $senha = $('#senha').val();
+        const cns = $('#cns').val();
+        const senha = $('#senha').val();
         $.ajax({
             url: '/ajax/LoginController/processarCnsLogin',
             method: 'POST',
             data: {
-                cns: $cns,
-                senha: $senha,
+                cns: cns,
+                senha: senha,
             },
             success: function(response) {
                 if(response.status === 500) {
