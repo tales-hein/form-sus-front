@@ -25,15 +25,15 @@ $(document).ready(function() {
     }
 
     $(document).on('click', '#btn_cadastrar_nova_visita', function() {
-        window.location.replace('http://localhost:8081/view/formulario.php?cns=' + cns);
+        window.location.replace(location.origin + '/view/formulario.php?cns=' + cns);
     })
 
     $(document).on('click', '#btn_historico', function() {
-        window.location.replace('http://localhost:8081/view/historico.php?cns=' + cns);
+        window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
     })
     
     $(document).on('click', '#btn_sair', function() {
-        window.location.replace('http://localhost:8081/view/login.php');
+        window.location.replace(location.origin + '/view/login.php');
     })
     
     loadWelcome();

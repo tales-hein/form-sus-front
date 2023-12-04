@@ -33,7 +33,8 @@ if (isset($_GET['cns'])) {
     </header>
 
 <!-- Conteudo -->
-    <div id="wrapper_conteudo_formulario" style="display: flex; justify-content: center; align-items: center;">
+<br><br><br>
+    <div id="wrapper_conteudo_formulario" style="height: 1200px; display: flex; justify-content: center; align-items: center;">
     </div>
 <!-- Footer -->
 

@@ -62,9 +62,14 @@ span {
 }
 
 .header {
+    padding-bottom: 10%;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: 100%;
     overflow: hidden;
     width: 100%;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 600;
     background-color: #004F96;
     padding: 8px 30px;
@@ -173,11 +178,14 @@ span {
 }
 
 .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     flex-shrink: 0;
     width: 100%;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 400;
-    padding: 8px 30px;
+    padding: 8px 10px;
     display: flex;
     justify-content: space-around;
     background-color: #004F96;

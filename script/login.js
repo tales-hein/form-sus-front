@@ -94,7 +94,7 @@ $(document).ready(function() {
             data: JSON.stringify(dados),
             success: function(response) {
                 if(response.success === true) {
-                    window.location.replace('http://localhost:8081/view/menu-principal.php?cns=' + cns);
+                    window.location.replace(location.origin + '/view/menu-principal.php?cns=' + cns);
                 }else {
                     alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
                 }

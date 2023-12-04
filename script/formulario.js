@@ -31,122 +31,146 @@ $(document).ready(function() {
     }
 
     function loadInfoGeral() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderInfoGeral',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresInfoGeral();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderInfoGeral',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresInfoGeral();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadInfoPessoal() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderInfoPessoal',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresInfoPessoal();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderInfoPessoal',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresInfoPessoal();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadPagFormulario_1() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderPag_1',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresPag_1();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderPag_1',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresPag_1();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadPagFormulario_2() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderPag_2',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresPag_2();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderPag_2',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresPag_2();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadPagFormulario_3() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderPag_3',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresPag_3();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderPag_3',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresPag_3();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadPagFormulario_4() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderPag_4',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresPag_4();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderPag_4',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresPag_4();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadPagFormulario_5() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderPag_5',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresPag_5();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderPag_5',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresPag_5();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
     function loadDesfecho() {
-        $('#wrapper_conteudo_formulario').empty();
-        $.ajax({
-            url: '/ajax/FormularioController/renderDesfecho',
-            method: 'GET',
-            success: function(response) {
-                $('#wrapper_conteudo_formulario').html(response);
-                carregarValoresDesfecho();
-            },
-            error: function(err) {
-                console.error(err);
-            }
+        let wrapper = $('#wrapper_conteudo_formulario');
+        wrapper.fadeOut('normal', function() {
+            wrapper.empty();
+            $.ajax({
+                url: '/ajax/FormularioController/renderDesfecho',
+                method: 'GET',
+                success: function(response) {
+                    wrapper.html(response).fadeIn('normal');
+                    carregarValoresDesfecho();
+                },
+                error: function(err) {
+                    console.error(err);
+                }
+            });
         });
     }
 
@@ -228,14 +252,14 @@ $(document).ready(function() {
             if(!confirmacao) {
                 return;
             }
-            window.location.replace('http://localhost:8081/view/historico.php?cns=' + cns);
+            window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
             return;
         }
         let confirmacao = window.confirm("Tem certeza que quer cancelar esse formulário? (ATENÇÃO: essa ação te enviará te volta para o menu principal e os dados cadastrados serão perdidos)")
         if(!confirmacao) {
             return;
         }
-        window.location.replace('http://localhost:8081/view/menu-principal.php?cns=' + cns);
+        window.location.replace(location.origin + '/view/menu-principal.php?cns=' + cns);
     });
 
     $(document).on('change', '#cns-cidadao', function() {
@@ -374,7 +398,7 @@ $(document).ready(function() {
                 data: JSON.stringify(dadosFormulario),
                 success: function(response) {
                     if(response.success == true) {
-                        window.location.replace('http://localhost:8081/view/historico.php?cns=' + cns);
+                        window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
                     }
                 },
                 error: function(xhr, status, error) {
@@ -467,7 +491,7 @@ $(document).ready(function() {
             data: JSON.stringify(dadosFormulario),
             success: function(response) {
                 if(response.success == true) {
-                    window.location.replace('http://localhost:8081/view/menu-principal.php?cns=' + cns);
+                    window.location.replace(location.origin + '/view/menu-principal.php?cns=' + cns);
                 }else {
                     alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
                 }
