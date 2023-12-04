@@ -29,6 +29,7 @@ if (isset($_GET['cns'])) {
     </header>
 
 <!-- Conteudo -->
+<br><br><br>
     <div id="wrapper_conteudo_historico" style="display: flex; justify-content: center; align-items: center;">
         <div class="wrapper-sidenav-e-form">
             <div class="content-wrapper">
