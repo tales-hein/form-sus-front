@@ -229,6 +229,7 @@ $(document).ready(function() {
                 return;
             }
             window.location.replace('http://localhost:8081/view/historico.php?cns=' + cns);
+            return;
         }
         let confirmacao = window.confirm("Tem certeza que quer cancelar esse formulário? (ATENÇÃO: essa ação te enviará te volta para o menu principal e os dados cadastrados serão perdidos)")
         if(!confirmacao) {
@@ -372,7 +373,6 @@ $(document).ready(function() {
                 contentType: 'application/json',
                 data: JSON.stringify(dadosFormulario),
                 success: function(response) {
-                    console.log('Request bem sucedido:', response);
                     if(response.success == true) {
                         window.location.replace('http://localhost:8081/view/historico.php?cns=' + cns);
                     }
@@ -406,17 +406,19 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify(dadosCidadao),
             success: function(response) {
-                console.log('Request bem sucedido:', response);
+                if(response.success == true) {
+                    cadastrarVisita()
+                }else {
+                    alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
+                }
             },
             error: function(xhr, status, error) {
                 console.error('Request falhou:', status);
             }
         });
+    })
 
-        //cadastrar visita
-        let resultadoCadastroVisita = false;
-        let idCadastroVisita = '';
-
+    function cadastrarVisita() {
         let dadosVisita = {
             "data": {
                 "cns": visita.cns,
@@ -433,47 +435,48 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify(dadosVisita),
             success: function(response) {
-                console.log('Request bem sucedido:', response);
                 if(response.success == true) {
-                    resultadoCadastroVisita = true;
-                    idCadastroVisita = response.response.id.match(/\d+/)[0];
+                    idCadastroVisita = response.response.id.toString().match(/\d+/)[0];
+                    cadastrarFormularioVisita(idCadastroVisita);
+                }else {
+                    alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
                 }
             },
             error: function(xhr, status, error) {
                 console.error('Request falhou:', status);
             }
         });
+    }
 
-        //update na visita criada
-        if(resultadoCadastroVisita && idCadastroVisita != '') {
-            let dadosFormulario = {
-                "data": {
-                    "id": idCadastroVisita,
-                    "cnsCidadao": cidadao.cnsCidadao,
-                    "geral": geral,
-                    "buscaAtiva": buscaAtiva,
-                    "acompanhamento": acompanhamento,
-                    "controleAmbientalVetorial": controleAmbientalVetorial,
-                    "desfecho": desfecho 
+    function cadastrarFormularioVisita(id) {
+        let dadosFormulario = {
+            "data": {
+                "id": id,
+                "cnsCidadao": cidadao.cnsCidadao,
+                "geral": geral,
+                "buscaAtiva": buscaAtiva,
+                "acompanhamento": acompanhamento,
+                "controleAmbientalVetorial": controleAmbientalVetorial,
+                "desfecho": desfecho 
+            }
+        };
+        $.ajax({
+            url: 'https://formsus.api.previa.app/api/visits/update',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(dadosFormulario),
+            success: function(response) {
+                if(response.success == true) {
+                    window.location.replace('http://localhost:8081/view/menu-principal.php?cns=' + cns);
+                }else {
+                    alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
                 }
-            };
-            $.ajax({
-                url: 'https://formsus.api.previa.app/api/visits/update',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(dadosFormulario),
-                success: function(response) {
-                    console.log('Request bem sucedido:', response);
-                    if(response.success == true) {
-                        window.location.replace('http://localhost:8081/view/menu-principal.php?cns=' + cns);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Request falhou:', status);
-                }
-            });
-        }
-    })
+            },
+            error: function(xhr, status, error) {
+                console.error('Request falhou:', status);
+            }
+        });
+    }
 
     $(document).on('click', '#btn-voltar-desfecho', function() {
         loadPagFormulario_5();

@@ -7,10 +7,6 @@
                 <input type="text" class="input" name="cns" id="cns" placeholder="CNS">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Nome completo</p>
-                <input type="text" class="input" name="cns" id="nome" placeholder="Seu nome">
-            </div>
-            <div class="input-wrapper">
                 <p class="descricao-input">Cadastre uma senha*</p>
                 <input type="password" class="input" name="cns" id="senha">
             </div>

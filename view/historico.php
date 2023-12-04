@@ -65,7 +65,8 @@ if (isset($_GET['cns'])) {
                                                 <br>
                                                 <button class="btn-primary-menu-small" id="id_visita_' . $idVisita . '">Rever</button>
                                             </div>
-                                        </div>';
+                                        </div><br>';
+                                        
                                 }
                             }
                         ?>
