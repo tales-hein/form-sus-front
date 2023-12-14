@@ -30,7 +30,7 @@ if (isset($_GET['cns'])) {
 
 <!-- Conteudo -->
 <br><br><br>
-    <div id="wrapper_conteudo_historico" style="display: flex; justify-content: center; align-items: center;">
+    <div id="wrapper_conteudo_historico" style="padding-left: 8rem;display: flex; justify-content: center; align-items: center;">
         <div class="wrapper-sidenav-e-form">
             <div class="content-wrapper">
                     <div style="height: auto; padding-top: 2rem; padding-bottom: 2rem;" class="form-info-geral">

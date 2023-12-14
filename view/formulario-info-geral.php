@@ -6,19 +6,19 @@
         <div style="height: 1000px;" class="form-info-geral">
             <span>Informações gerais da visita</span>
             <div class="input-wrapper">
-                <p class="descricao-input">Turno*</p>
+                <p class="descricao-input" id="label_turno">Turno* (Manhã, Tarde ou Noite)</p>
                 <input type="text" class="input" name="turno" id="turno">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Microárea*</p>
+                <p class="descricao-input" id="label_microarea">Microárea* (00...99 ou FA)</p>
                 <input type="text" class="input" name="microarea" id="microarea">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Tipo de imóvel*</p>
+                <p class="descricao-input" id="label_imovel">Tipo de imóvel* (01...12 ou 99)</p>
                 <input type="text" class="input" name="tipo-imovel" id="tipo_imovel">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Núm. prontuário</p>
+                <p class="descricao-input" id="label_prontuario">Núm. prontuário</p>
                 <input type="text" class="input" name="num-prontuario" id="num_prontuario">
             </div>
             <div class="input-wrapper">

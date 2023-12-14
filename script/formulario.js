@@ -1,10 +1,12 @@
 $(document).ready(function() {
     const cns = $('#cns_agente_logado').val();
-
     let idVisitaRevisao = '';
-    if($('#id_visita_revisao').length > 0) {
-        idVisitaRevisao = $('#id_visita_revisao').val();
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.get('idvisita')) {
+        idVisitaRevisao = urlParams.get('idvisita');
+        loadFieldsRevisao(idVisitaRevisao);
     }
+
     let geral = [];
     let buscaAtiva = [];
     let acompanhamento = [];
@@ -12,22 +14,36 @@ $(document).ready(function() {
     let desfecho = '';
 
     let visita = {
-        cns: cns,
-        turno: undefined,
-        microarea: undefined,
-        imovel: undefined,
-        prontuario: undefined,
+        cns:           cns,
+        turno:         undefined,
+        microarea:     undefined,
+        imovel:        undefined,
+        prontuario:    undefined,
         compartilhada: undefined
     }
 
     let cidadao = {
-        cns: cns,
-        cnsCidadao: undefined,
+        cns:          cns,
+        cnsCidadao:   undefined,
         nomeCompleto: undefined,
-        nascimento: undefined,
-        sexo: undefined,
-        peso: undefined,
-        altura: undefined
+        nascimento:   undefined,
+        sexo:         undefined,
+        peso:         undefined,
+        altura:       undefined,
+    }
+
+    let validacaoCampos = {
+        turno:           false,
+        microarea:       false,
+        tipo_imovel:     false,
+        prontuario:      false,
+        cns_cidadao:     false,
+        nome_completo:   false,
+        data_nascimento: false,
+        sexo:            false,
+        peso:            false,
+        altura:          false,
+        desfecho:        false,
     }
 
     function loadInfoGeral() {
@@ -247,19 +263,31 @@ $(document).ready(function() {
     })
 
     $(document).on('click', '#btn-voltar-infogeral', function() {
-        if(idVisitaRevisao != '') {
-            let confirmacao = window.confirm("Tem certeza que quer cancelar a atualização do formulário? (ATENÇÃO: essa ação te enviará te volta para o histórico e os dados continuaram iguais)")
-            if(!confirmacao) {
-                return;
-            }
-            window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
+        if(idVisitaRevisao !== '') {
+            $('#text-content-modal').empty();
+            let texto = '<p>Tem certeza que quer voltar?<br>Os dados alterados voltarão para os valores originais.</p>';
+            $('#text-content-modal').append(texto);
+            $('.overlay, .customAlert').fadeIn();
+            $('.close, #noBtn').click(function() {
+                $('.overlay, .customAlert').fadeOut();
+            });
+        
+            $('#yesBtn').click(function() {
+                window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
+            });
             return;
         }
-        let confirmacao = window.confirm("Tem certeza que quer cancelar esse formulário? (ATENÇÃO: essa ação te enviará te volta para o menu principal e os dados cadastrados serão perdidos)")
-        if(!confirmacao) {
-            return;
-        }
-        window.location.replace(location.origin + '/view/menu-principal.php?cns=' + cns);
+        $('#text-content-modal').empty();
+            let texto = '<p>Tem certeza que quer voltar?<br>Os dados preenchidos serão perdidos.</p>';
+            $('#text-content-modal').append(texto);
+        $('.overlay, .customAlert').fadeIn();
+        $('.close, #noBtn').click(function() {
+            $('.overlay, .customAlert').fadeOut();
+        });
+    
+        $('#yesBtn').click(function() {
+            window.location.replace(location.origin + '/view/menu-principal.php?cns=' + cns);
+        });
     });
 
     $(document).on('change', '#cns-cidadao', function() {
@@ -373,73 +401,93 @@ $(document).ready(function() {
         loadPagFormulario_4();
     });
 
+
+    function hasFalseProperty(obj) {
+        for (let key in obj) {
+            if (obj.hasOwnProperty(key) && obj[key] === false) {
+            return true;
+            }
+        }
+        return false;
+    }
     // Btns desfecho
     $(document).on('click', '#btn-gravar-formulario', function() {
-        if(idVisitaRevisao != '') {
-            let confirmacao = window.confirm("Confirme se quer gravar as alterações que fez. (ATENÇÃO: essa ação te enviará te volta para o histórico)")
-            if(!confirmacao) {
-                return;
-            }
-            let dadosFormulario = {
+        if(idVisitaRevisao !== '') {
+            $('#text-content-modal').empty();
+            let texto = '<p>Confirme a atualização do formulário.<br>Os dados preenchidos serão gravados e você voltará para o histórico.</p>';
+            $('#text-content-modal').append(texto);
+            $('.overlay, .customAlert').fadeIn();
+            $('.close, #noBtn').click(function() {
+                $('.overlay, .customAlert').fadeOut();
+            });
+            $('#yesBtn').click(function() {
+                let dadosFormulario = {
+                    "data": {
+                        "id": Number(idVisitaRevisao),
+                        "cnsCidadao": cidadao.cnsCidadao,
+                        "geral": geral,
+                        "buscaAtiva": buscaAtiva,
+                        "acompanhamento": acompanhamento,
+                        "controleAmbientalVetorial": controleAmbientalVetorial,
+                        "desfecho": desfecho
+                    }
+                };
+                console.log(dadosFormulario);
+                $.ajax({
+                    url: 'https://formsus.api.previa.app/api/visits/update',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(dadosFormulario),
+                    success: function(response) {
+                        if(response.success == true) {
+                            window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
+                        }else{
+                            console.log(response);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Request falhou:', status);
+                    }
+                });
+            });    
+            return;        
+        }
+        $('#text-content-modal').empty();
+        let texto = '<p>Confirme o envio do formulário.<br>Os dados preenchidos serão gravados e você voltará para o menu principal.</p>';
+        $('#text-content-modal').append(texto);
+        $('.overlay, .customAlert').fadeIn();
+        $('.close, #noBtn').click(function() {
+            $('.overlay, .customAlert').fadeOut();
+        });
+        $('#yesBtn').click(function() {
+            let dadosCidadao = {
                 "data": {
-                    "id": idVisitaRevisao,
+                    "cns": cidadao.cns,
                     "cnsCidadao": cidadao.cnsCidadao,
-                    "geral": geral,
-                    "buscaAtiva": buscaAtiva,
-                    "acompanhamento": acompanhamento,
-                    "controleAmbientalVetorial": controleAmbientalVetorial,
-                    "desfecho": desfecho 
+                    "nomeCompleto": cidadao.nomeCompleto,
+                    "nascimento": cidadao.nascimento,
+                    "sexo": cidadao.sexo,
+                    "peso": parseFloat(cidadao.peso),
+                    "altura": parseFloat(cidadao.altura) 
                 }
             };
             $.ajax({
-                url: 'https://formsus.api.previa.app/api/visits/update',
+                url: 'https://formsus.api.previa.app/api/citizen/create',
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify(dadosFormulario),
+                data: JSON.stringify(dadosCidadao),
                 success: function(response) {
                     if(response.success == true) {
-                        window.location.replace(location.origin + '/view/historico.php?cns=' + cns);
+                        cadastrarVisita()
+                    }else {
+                        alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error('Request falhou:', status);
                 }
             });
-            return;
-        }
-
-        let confirmacao = window.confirm("Confirme se quer gravar o presente formulário. (ATENÇÃO: essa ação te enviará te volta para o menu principal)")
-        if(!confirmacao) {
-            return;
-        }
-        //cadastrar cidadão
-        let dadosCidadao = {
-            "data": {
-                "cns": cidadao.cns,
-                "cnsCidadao": cidadao.cnsCidadao,
-                "nomeCompleto": cidadao.nomeCompleto,
-                "nascimento": cidadao.nascimento,
-                "sexo": cidadao.sexo,
-                "peso": parseFloat(cidadao.peso),
-                "altura": parseFloat(cidadao.altura) 
-            }
-        };
-        $.ajax({
-            url: 'https://formsus.api.previa.app/api/citizen/create',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(dadosCidadao),
-            success: function(response) {
-                if(response.success == true) {
-                    cadastrarVisita()
-                }else {
-                    alert(JSON.stringify(response.errors).replace(/[\[\]]/g, ''));
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error('Request falhou:', status);
-            }
-        });
+        });        
     })
 
     function cadastrarVisita() {
@@ -629,4 +677,203 @@ $(document).ready(function() {
     })
 
     loadInfoGeral();
+
+    // Validadores de campos:
+    // Validador visita:
+
+    $(document).on('input', '#turno', function() {
+        validarTurno($(this));
+    });
+    function validarTurno($e) {
+        let valorTurno = $e.val()[0];
+        let valoresPermitidos = ["M", "T", "N"];
+        if (valorTurno == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.turno = false;
+            return
+        }
+        if (valoresPermitidos.includes(valorTurno.toUpperCase()) && $e.val().length <= 5) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.turno = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.turno = false;
+        }
+    }
+
+    $(document).on('input', '#microarea', function() {
+        validarMicroarea($(this));
+    });
+    function validarMicroarea($e) {
+        let valorMicroarea = $e.val();
+        if (valorMicroarea == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.microarea = false;
+            return
+        }
+        if (/^(FA|\d{2})$/.test(valorMicroarea)) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.microarea = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.microarea = false;
+        }
+      }
+
+    $(document).on('input', '#tipo_imovel', function() {
+        validarImovel($(this));
+    });
+    function validarImovel($e) {
+        let valorImovel = $e.val();
+        if (valorImovel == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.tipo_imovel = false;
+            return
+        }
+        if (/^(0[1-9]|1[0-2]|99)$/.test(valorImovel)) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.tipo_imovel = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.tipo_imovel = false;
+        }
+    }
+
+    $(document).on('input', '#num_prontuario', function() {
+        validarProntuario($(this));
+    });
+    function validarProntuario($e) {
+        let valorProntuario = $e.val();
+        if (valorProntuario == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.prontuario = false;
+            return
+        }
+        if (/^\d+$/.test(valorProntuario)) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.prontuario = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.prontuario = false;
+        }
+    }
+
+    //Validador cidadão:
+
+    $(document).on('input', '#data_nascimento', function() {
+        validarDataNascimento($(this));
+    });
+    function validarDataNascimento($e) {
+        let valorData = $e.val();
+        if (valorData == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.data_nascimento = false;
+            return
+        }
+        if (/^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$/.test(valorData)) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.data_nascimento = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.data_nascimento = false;
+        }
+    }
+      
+    $(document).on('input', '#peso', function() {
+        validarFloatPeso($(this));
+    });
+    function validarFloatPeso($e) {
+        let valorPeso = $e.val();
+        if (valorPeso == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.peso = false;
+            return
+        }
+        if (!isNaN(parseFloat(valorPeso)) && isFinite(parseFloat(valorPeso))) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.peso = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.peso = false;
+        }
+    }
+      
+    $(document).on('input', '#altura', function() {
+        validarFloatAltura($(this));
+    });
+    function validarFloatAltura($e) {
+        let valorAltura = $e.val();
+        if (valorAltura == "") {
+            $e.css('border', '1px solid #ABB9C0');
+            validacaoCampos.altura = false;
+            return
+        }
+        if (!isNaN(parseFloat(valorAltura)) && isFinite(parseFloat(valorAltura))) {
+            $e.css('border', '1px solid #1d72bd');
+            validacaoCampos.altura = true;
+        } else {
+            $e.css('border', '1px solid red');
+            validacaoCampos.altura = true;
+        }
+    }
+
+    function loadFieldsRevisao(id) {
+        $.ajax({
+            url: 'https://formsus.api.previa.app/api/visits/byId?id='+id,
+            type: 'GET',
+            success: function(response) {
+                if(response.success) {
+                    parseData(JSON.stringify(response.response.docs[0]));
+                }
+            },
+            error: function(xhr, status, error) {
+                
+            }
+        });
+    }
+
+    function parseData(jsonData) {
+        const data = JSON.parse(jsonData);
+    
+        geral = [];
+        buscaAtiva = [];
+        acompanhamento = [];
+        controleAmbientalVetorial = [];
+        desfecho = '';
+    
+        visita = {
+            cns: data.cns,
+            turno: data.turno,
+            microarea: data.microarea,
+            imovel: data.imovel,
+            prontuario: data.prontuario,
+            compartilhada: data.compartilhada
+        };
+
+        const date = new Date(data.nascimento);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+    
+        cidadao = {
+            cns: data.cns,
+            cnsCidadao: data.cnsCidadao,
+            nomeCompleto: data.nomeCompleto,
+            nascimento: `${day}/${month}/${year}`,
+            sexo: data.sexo,
+            peso: data.peso,
+            altura: data.altura
+        };
+    
+        if (Array.isArray(data.buscaAtiva)) {
+            buscaAtiva = data.buscaAtiva;
+        }
+    
+        if (Array.isArray(data.desfecho) && data.desfecho.length > 0) {
+            desfecho = data.desfecho[0];
+        }
+    
+        loadInfoGeral();
+    }
+
 });

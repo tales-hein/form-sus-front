@@ -29,16 +29,3 @@ function routeTo($referencia, $cns = false) {
     var_dump(headers_list());
     exit();
 }
-
-function gerarAssinatura($cns) {
-    if(strlen($cns) != 15){
-        exit('403: Não permitido');
-    }
-    $segredo = '8uRhAeH89naXfFXKGOEj';
-    return hash_hmac('sha256', $cns, $segredo);
-}
-
-function validarKey($valor, $assinatura) {
-    $segredo = '8uRhAeH89naXfFXKGOEj';
-    return hash_equals(hash_hmac('sha256', $valor, $segredo), $assinatura);
-}

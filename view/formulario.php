@@ -43,5 +43,21 @@ if (isset($_GET['cns'])) {
         <p>© 2023 eVisitas</p>
     </footer>
 
+<!-- modals -->
+
+<div class="overlay"></div>
+
+<div class="customAlert">
+  <div class="customAlertContent">
+    <span class="close">&times;</span>
+    <br>
+    <br>
+    <div id="text-content-modal">
+
+    </div>
+    <button id="yesBtn">Sim</button>
+    <button id="noBtn">Não</button>
+  </div>
+</div>
 </body>
 </html>

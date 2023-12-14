@@ -6,19 +6,19 @@
         <div class="form-info-pessoal">
             <span>Dados Pessoais do Cidadão</span>
             <div class="input-wrapper">
-                <p class="descricao-input">CNS*</p>
+                <p class="descricao-input" id="label_cns_cidadao">CNS*</p>
                 <input type="text" class="input" name="cns" id="cns-cidadao">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Nome Completo*</p>
+                <p class="descricao-input" id="label_nome_completo">Nome Completo*</p>
                 <input type="text" class="input" name="nome_completo" id="nome_completo">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Data de nascimento*</p>
+                <p class="descricao-input" id="label_data_nascimento">Data de nascimento*</p>
                 <input type="text" class="input" name="data_nascimento" id="data_nascimento">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Sexo*</p>
+                <p class="descricao-input" id="label_sexo">Sexo*</p>
                 <select style="background-color: white; width: 384px; height: 54px;" class="input" name="select_sexo" id="select_sexo">
                     <option value="">&#8212; Selecione &#8212;</option>
                     <option value="M">Masculino</option>
@@ -26,11 +26,11 @@
                 </select>
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Peso*</p>
+                <p class="descricao-input" id="label_peso">Peso* (Em decimal)</p>
                 <input type="text" class="input" name="peso" id="peso">
             </div>
             <div class="input-wrapper">
-                <p class="descricao-input">Altura*</p>
+                <p class="descricao-input" id="label_altura">Altura* (Em decimal)</p>
                 <input type="text" class="input" name="altura" id="altura">
             </div>
             <br>
